@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, addToCart }) => {
   return (
-    <div data-testId="productCard" className="max-w-sm bg-white rounded-lg shadow-md justify-start">
+    <div data-cy={`${product.title}`} data-testId="productCard" className="max-w-sm bg-white rounded-lg shadow-md justify-start">
       <img
         className="block object-cover object-center w-96 h-96 rounded-lg p-4"
         src={`assets/images/${product.filename}`}
@@ -34,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, addToCart 
         </div>
         <div className="flex justify-between items-center mb-5">
           <span data-testId="price" className="text-3xl font-bold text-gray-900">${product.price}</span>
-          <button
+          <button data-testId="addToCartButton"
             onClick={() => addToCart(product.title)}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >

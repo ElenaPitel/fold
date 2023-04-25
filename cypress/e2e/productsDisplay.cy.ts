@@ -36,12 +36,16 @@ describe('On a product list page', () => {
 
     it('product image', () => {
       productsPage.allProductCards()
-        .each((productCard, image) => {
+        .each((productCard) => {
           cy.wrap(productCard).within(() => {
-            productsPage.productImage()
-              .should('exist')
-              .should('be.visible')
-              .should('have.attr', 'src', `assets/images/${image}.jpg`)
+            productsPage.getProductCardTitle()
+              .then((productCardTitleText) => { filterDataByProductTitle(productCardTitleText) })
+              .then((productData: any) => {
+                productsPage.productImage()
+                  .should('exist')
+                  .should('be.visible')
+                  .should('have.attr', 'src', `assets/images/${productData[0].filename}`)
+              })
           })
         })
     })
@@ -90,6 +94,5 @@ describe('On a product list page', () => {
     xit('product ordering', () => {
 
     })
-
   })
 })
