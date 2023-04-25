@@ -28,5 +28,18 @@ export class ProductsPage {
     productImage() {
         return cy.get('[data-testid="image"]')
     }
+
+    getProductCard(index) {
+        return cy.get('[data-testId="productCard"]').eq(index)
+    }
+
+    addToCartButton() {
+        return cy.get('[data-testid="addToCartButton"]')
+    }
+
+    validateAddToCartButton(quantity) {
+        this.addToCartButton().should('have.text', `Add to cart (-${quantity})`)
+    }
 }
+
 
