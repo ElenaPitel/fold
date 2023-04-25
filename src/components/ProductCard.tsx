@@ -8,11 +8,12 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, addToCart }) => {
   return (
-    <div className="max-w-sm bg-white rounded-lg shadow-md justify-start">
+    <div data-testId="productCard" className="max-w-sm bg-white rounded-lg shadow-md justify-start">
       <img
         className="block object-cover object-center w-96 h-96 rounded-lg p-4"
         src={`assets/images/${product.filename}`}
         alt="product"
+        data-testId="image"
       />
       <div className="px-5 pb-5">
         <div className="flex items-center mt-2.5 mb-5">
@@ -32,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, addToCart 
           </span>
         </div>
         <div className="flex justify-between items-center mb-5">
-          <span className="text-3xl font-bold text-gray-900">${product.price}</span>
+          <span data-testId="price" className="text-3xl font-bold text-gray-900">${product.price}</span>
           <button
             onClick={() => addToCart(product.title)}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -40,8 +41,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, addToCart 
             {`Add to cart (-${quantity || 0})`}
           </button>
         </div>
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900">{product.title}</h5>
-        <h5 className="text-lg tracking-tight text-gray-500">{product.description}</h5>
+        <h5 data-testId="title" className="text-xl font-semibold tracking-tight text-gray-900">{product.title}</h5>
+        <h5 data-testId="description" className="text-lg tracking-tight text-gray-500">{product.description}</h5>
       </div>
     </div>
   )
