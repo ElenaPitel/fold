@@ -30,12 +30,12 @@ const Checkout = () => {
         </thead>
         <tbody>
           {Object.keys(cart).map((title) => (
-            <tr key={title} className="bg-white border-b">
-              <th scope="row" className="px-6 py-4 font-medium text-gray-900">
+            <tr data-testId="cartRow" key={title} className="bg-white border-b">
+              <th data-testId="productTitle" scope="row" className="px-6 py-4 font-medium text-gray-900">
                 {title}
               </th>
-              <td className="px-6 py-4">${productsByTitle[title].price}</td>
-              <td className="px-6 py-4">
+              <td data-testId="productPrice" className="px-6 py-4">${productsByTitle[title].price}</td>
+              <td data-testId="productQty" className="px-6 py-4">
                 <button
                   onClick={() => dispatch(decreaseQuantity(title))}
                   className="text-white text-blue-700 hover:text-blue-800 font-medium text-sm px-3 py-2 text-center"
@@ -62,7 +62,7 @@ const Checkout = () => {
           ))}
         </tbody>
       </table>
-      <h1 className="text-xl font-black">Total: ${totalPrice.toFixed(2)}</h1>
+      <h1 data-testId="totalPrice" className="text-xl font-black">Total: ${totalPrice.toFixed(2)}</h1>
     </div>
   )
 }

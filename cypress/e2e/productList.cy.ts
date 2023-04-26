@@ -46,44 +46,34 @@ describe('On a product list page', () => {
     })
 
     describe('a user should be be able to add products to cart', () => {
+
+        const addProductsToCart = (productIndex, quantity) => {
+            productsPage.getProductCard(productIndex).within(() => {
+                for (let i = 0; i < quantity; i++) {
+                    productsPage.addToCartButton().click()
+                }
+                productsPage.validateAddToCartButton(quantity)
+            })
+        }
+
         beforeEach(() => {
             productsPage.visit()
         })
 
         it('single product', () => {
-            productsPage.getProductCard(0).within(() => {
-                productsPage.addToCartButton().click()
-                productsPage.validateAddToCartButton(1)
-            })
+            addProductsToCart(0, 1)
         })
 
         it('multiple quantity', () => {
             const randomQty = Math.floor(Math.random() * 5) + 1
-            productsPage.getProductCard(1).within(() => {
-                for (let i = 0; i < randomQty; i++) {
-                    productsPage.addToCartButton().click()
-                }
-                productsPage.validateAddToCartButton(randomQty)
-            })
+            addProductsToCart(1, randomQty)
         })
 
         it('multiple products', () => {
             const firstRandomQty = Math.floor(Math.random() * 5) + 1
             const secondRandomQty = Math.floor(Math.random() * 5) + 1
-            productsPage.getProductCard(2).within(() => {
-                for (let i = 0; i < firstRandomQty; i++) {
-                    productsPage.addToCartButton().click()
-                }
-                productsPage.validateAddToCartButton(firstRandomQty)
-            })
-                .then(() => {
-                    productsPage.getProductCard(3).within(() => {
-                        for (let i = 0; i < secondRandomQty; i++) {
-                            productsPage.addToCartButton().click()
-                        }
-                        productsPage.validateAddToCartButton(secondRandomQty)
-                    })
-                })
+            addProductsToCart(2, firstRandomQty)
+            addProductsToCart(3, secondRandomQty)
         })
     })
 })

@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, quantity, addToCart }) => {
   return (
-    <div data-cy={`${product.title}`} data-testId="productCard" className="max-w-sm bg-white rounded-lg shadow-md justify-start">
+    <div data-testId="productCard" className="max-w-sm bg-white rounded-lg shadow-md justify-start">
       <img
         className="block object-cover object-center w-96 h-96 rounded-lg p-4"
         src={`assets/images/${product.filename}`}
