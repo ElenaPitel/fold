@@ -40,6 +40,11 @@ export class ProductsPage {
     validateAddToCartButton(quantity) {
         this.addToCartButton().should('have.text', `Add to cart (-${quantity})`)
     }
+
+    addProductToCartByIndex(index) {
+        this.getProductCard(index).within(() => {
+            this.addToCartButton().click();
+        })
+    }
+
 }
-
-
