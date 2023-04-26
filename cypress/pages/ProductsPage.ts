@@ -42,9 +42,17 @@ export class ProductsPage {
     }
 
     addProductToCartByIndex(index) {
-        this.getProductCard(index).within(() => {
+        return this.getProductCard(index).within(() => {
             this.addToCartButton().click();
         })
     }
 
+    addProductsToCart(productIndex, quantity) {
+        this.getProductCard(productIndex).within(() => {
+            for (let i = 0; i < quantity; i++) {
+                this.addToCartButton().click()
+            }
+            this.validateAddToCartButton(quantity)
+        })
+    }
 }

@@ -40,4 +40,5 @@ export class CheckoutPage {
     clickButton(button) {
         return cy.get('button').contains(button).click()
     }
+
 }
