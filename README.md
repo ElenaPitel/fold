@@ -47,4 +47,43 @@ You are tasked with;
 - Provide in this README instructions on how to run the tests and any additional information about your solution.
 - Have fun and don't stress out!
 
+## E2E Automation
 
+* `cd into the root folder`, update `$ npm install`
+* run `$ npm start` to launch `http://localhost:3000`
+
+* run `$ npm run e2e:report` to run tests in headless mode and create report:<br>
+    - HTML Report will be available after run is completed<br>
+    - Navigate to cypress\reports\html\index.html find the report<br>
+    - Open it in any browser<br>
+    - To access screenshots of failed tests click on test content icon:<br>
+
+    ![image](./public/screenshot/Screenshot3.png)<br><br>
+
+
+* run `$ npm run e2e:open` to playback tests one by one:<br>
+    - Cypress window will be opened<br>
+    - Navigate to "E2E Testing" option<br>
+    - Select "Chrome" (should be pre-installed on your machine)<br>
+    - Click "Start E2E Testing in Chrome"
+
+#### Issues and improvements
+1. Company name on nav bar
+    - actual: FLOD
+    - expected: FOLD
+2. Products tab name on nav bar
+    - actual: Product's 
+    - expected: Products
+3. Checkout tab name on nav bar
+    - actual: Chekcout 
+    - expected: Checkout 
+4. Minus sign of items quantity on "Add to cart" button
+    - actual:  Add to cart (-0), Add to cart (-2)
+    - expected: without minus sign
+5. Different width of content on Products and Checkout pages when displaying on widescreen<br>
+leads to inconstancy of nav bar centering when switching tabs
+    - actual:
+     ![image](./public/screenshot/Screenshot4.png)<br>
+     - expected: uniform position of nav bar when switching tabs
+6. Items on Products page should be ordered by price/rating/category/alphabet
+7. URL of Products page should contain '/products'
