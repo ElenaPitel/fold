@@ -42,7 +42,7 @@ describe('On a cart page', () => {
                 })
             })
             checkoutPage.verifyRowsQty(2)
-            checkoutPage.verifycartTotalPrice('87.00')
+            checkoutPage.verifyCartTotalPrice('87.00')
         })
 
 
@@ -58,7 +58,7 @@ describe('On a cart page', () => {
                         }
                     })
                 checkoutPage.verifyRowsQty(event.finalRowQty)
-                checkoutPage.verifycartTotalPrice(event.totalPrice)
+                checkoutPage.verifyCartTotalPrice(event.totalPrice)
             })
         })
     })

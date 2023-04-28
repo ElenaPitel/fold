@@ -35,7 +35,7 @@ describe('On a cart page', () => {
         it('when the user removes an item checkout page and navigates back to product list page', function () {
             navBar.navigateToCheckout()
             checkoutPage.clickButton('Remove')
-            checkoutPage.verifycartTotalPrice('0.00')
+            checkoutPage.verifyCartTotalPrice('0.00')
 
             navBar.navigateToProducts()
             productsPage.getProductCard(0).within(() => {
