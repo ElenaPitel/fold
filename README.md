@@ -49,7 +49,7 @@ You are tasked with;
 
 ## E2E Automation
 
-* `cd into the root folder`, update `$ npm install`
+* `cd into the root folder`, update `$ npm install` if not run before
 * run `$ npm start` to launch `http://localhost:3000`
 
 * run `$ npm run e2e:report` to run tests in headless mode and create report:<br>
@@ -86,4 +86,6 @@ leads to inconstancy of nav bar centering when switching tabs
      ![image](./public/screenshot/Screenshot4.png)<br>
      - expected: uniform position of nav bar when switching tabs
 6. Items on Products page should be ordered by price/rating/category/alphabet
-7. URL of Products page should contain '/products'
+7. Persistent storage is required as currently all data is cleared upon refreshing the page
+8. URL of Products page should contain '/products'
+9. Add padding to the bottom of the page for the product cards

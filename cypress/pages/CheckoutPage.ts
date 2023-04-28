@@ -29,7 +29,7 @@ export class CheckoutPage {
         return cy.get('[data-testid="totalPrice"]')
     }
 
-    verifycartTotalPrice(price) {
+    verifyCartTotalPrice(price) {
         this.cartTotalPrice().should('have.text', `Total: $${price}`)
     }
 
